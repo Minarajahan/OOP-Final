@@ -1,0 +1,293 @@
+Name:AKTER RATRE-202322240320
+Name:JAHAN MINARA-202322240308
+
+
+
+
+1/public class Main{
+    public static void main(String []args) {
+        int x = 2;
+        int y = 3;
+        System.out.printf("x=%d%n",x);
+        System.out.printf("Value of %d +%d is %d%n",x,x,(x+x));
+        System.out.printf("x=");
+        System.out.printf("%d=%d%n",(x+y),(y+x));
+
+    }
+}
+
+Answer:
+ x=2
+Value of 2 +2 is 4
+x=5=5
+-------------------------------------------------------------------------------------------------------
+
+2/
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the current world population: ");
+        double currentPopulation = scanner.nextDouble(); 
+
+        System.out.print("Enter the annual growth rate (in percentage): ");
+        double growthRate = scanner.nextDouble();  
+
+        double growthFactor = 1 + (growthRate / 100.0);
+
+        for (int year = 2; year <= 4; year++) {  
+            currentPopulation = currentPopulation * growthFactor;  
+            System.out.printf("Estimated population in %d years: %.2f%n", year, currentPopulation);
+        }
+
+        scanner.close();
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------
+3/
+
+1/object
+
+2/ Encapsulation, Inheritance, Polymorphism, Abstraction
+
+3/Polymorphism
+
+4/Private Access Modifier
+
+5/Constructor
+
+6/Encapsulation is the bunding of the data with the methods that operate on that data,and it is often on that data ,and it is often achieve through private access modifier.
+
+7/ Polymorphism is the different types of the same class through a common  interface.it allows objects of different types to respond to the same method call in their own unique way.
+
+8/Abstraction in OOP is the process of hiding implementation details and showing only essential features of an object.
+
+9/Constructor is a special method to initialize object automatically when they are created.
+
+10/Method overloading is a features that allows multiple methods in the same name  but different parameters.
+
+11/In (OOP), a destructor is a special method that is used to perform cleanup operations before an object is destroyed.Java, however, doesn't have explicit destructors. Instead, Java relies on garbage collection to manage memory.
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+4/import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        boolean playAgain = true;
+
+        while (playAgain) {
+            int numberToGuess = random.nextInt(1000) + 1;
+            int userGuess = 0;
+            int attempts = 0;
+
+            System.out.println("Guess a number between 1 and 1000.");
+
+            while (userGuess != numberToGuess) {
+                System.out.print("Enter your guess: ");
+                userGuess = scanner.nextInt();
+                attempts++;
+
+                if (userGuess > numberToGuess) {
+                    System.out.println("Too high. Try again.");
+                } else if (userGuess < numberToGuess) {
+                    System.out.println("Too low. Try again.");
+                } else {
+                    System.out.println("Congratulations! You guessed the number!");
+                    System.out.println("It took you " + attempts + " attempts.");
+                }
+            }
+
+            System.out.print("Would you like to play again? (yes/no): ");
+            String response = scanner.next().toLowerCase();
+            playAgain = response.equals("yes");
+        }
+
+        System.out.println("Thank you for playing! Goodbye!");
+        scanner.close();
+    }
+}
+-------------------------------------------------------------------------------------------------------------------
+5/
+
+import java.util.Scanner;
+public class EvenOrOdd {
+    public boolean isEven(int number) {
+        return number % 2 == 0; 
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        EvenOrOdd evenOrOdd = new EvenOrOdd();
+        System.out.println("Enter integers one at a time to check if they are even or odd.");
+        System.out.println("Type '0' to exit the program.");
+        while (true) {
+            System.out.print("Enter an integer: ");
+            int number = scanner.nextInt();
+            if (number == 0) {
+                System.out.println("Exiting the program. Thank you!");
+                break;
+            }
+            if (evenOrOdd.isEven(number)) {
+                System.out.println(number + " is even.");
+            } else {
+                System.out.println(number + " is odd.");
+            }
+        }
+        scanner.close();
+    }
+}
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+6/
+import java.util.Scanner;
+
+class Employee {
+
+    private String name;
+    private int id;
+    private double hourlyRate;
+    private double hoursWorked;
+
+    public void setDetails(String name, int id, double hourlyRate, double hoursWorked) {
+        this.name = name;
+        this.id = id;
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    public double calculateSalary() {
+        return hourlyRate * hoursWorked;
+    }
+
+    public void displayDetails() {
+        System.out.println("Employee ID: " + id);
+        System.out.println("Employee Name: " + name);
+        System.out.println("Hourly Rate: $" + hourlyRate);
+        System.out.println("Hours Worked: " + hoursWorked);
+        System.out.println("Total Salary: $" + calculateSalary());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        Employee employee = new Employee();
+
+        System.out.print("Enter Employee Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter Employee ID: ");
+        int id = scanner.nextInt();
+        System.out.print("Enter Hourly Rate: ");
+        double hourlyRate = scanner.nextDouble();
+        System.out.print("Enter Hours Worked: ");
+        double hoursWorked = scanner.nextDouble();
+
+        employee.setDetails(name, id, hourlyRate, hoursWorked);
+
+        System.out.println("\nEmployee Details:");
+        employee.displayDetails();
+
+        scanner.close();
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------------
+7/
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+8/
+----------------------------------------------------------------------------------------------------------------
+
+9/
+public class Movie {
+    private String title;
+    private String genre;
+
+    public Movie(String title, String genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+    public void displayDetails() {
+        System.out.println("Movie Title: " + title);
+        System.out.println("Genre: " + genre);
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public static void main(String[] args) {
+        Movie movie = new Movie("Inception", "Science Fiction");
+
+        movie.displayDetails();
+    }
+}
+
+
+
+
+
+-------------------------------------------------------------------------------------------
+11/import java.util.ArrayList;
+public class ShoppingCart {
+    private ArrayList<String> items;
+    public ShoppingCart() {
+        items = new ArrayList<>();
+    }
+    public void addItem(String item) {
+        items.add(item);
+        System.out.println(item + " has been added to the shopping cart.");
+    }
+    public void removeItem(String item) {
+        if (items.contains(item)) {
+            items.remove(item);
+            System.out.println(item + " has been removed from the shopping cart.");
+        } else {
+            System.out.println(item + " is not in the shopping cart.");
+        }
+    }
+    public void displayItems() {
+        if (items.isEmpty()) {
+            System.out.println("The shopping cart is empty.");
+        } else {
+            System.out.println("Items in your shopping cart:");
+            for (String item : items) {
+                System.out.println("- " + item);
+            }
+        }
+    }
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart();
+        cart.addItem("Apple");
+        cart.addItem("Banana");
+        cart.addItem("Laptop");
+        cart.displayItems();
+        cart.removeItem("Banana");
+        cart.displayItems();
+        cart.removeItem("Orange");
+    }
+}
